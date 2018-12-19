@@ -11,11 +11,10 @@ class ApiController {
         $this->db = $db;
     }
 
-    public function usersAction(Request $request, Response $response, $args)
+    public function readAction(Request $request, Response $response, $args)
     {
-
         $selectStatement = $this->db->select()
-                               ->from('radacct');
+                               ->from($request->getAttribute('table')/*'radacct'*/);
 
         $stmt = $selectStatement->execute();
         $data = $stmt->fetchAll();

@@ -15,5 +15,5 @@ $app->get('/', function (Request $request, Response $response, array $args) {
 
 // define routes for the APIs
 $app->group('/api', function () use ($app) {
-    $app->get('/users', 'App\Controllers\ApiController:usersAction');
+    $app->get('/read/[{table}]', 'App\Controllers\ApiController:readAction');
 });
